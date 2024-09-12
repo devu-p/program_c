@@ -1,0 +1,1 @@
+//write a program in c to read any month number in integer and display the number of days for this month.
