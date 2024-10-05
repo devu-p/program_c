@@ -3,14 +3,11 @@
 #include<stdio.h>
 void main()
 {
-    char n1,n2;
-    printf("enter value of n1:");
-    scanf("%c",&n1);
-    printf("enter value of n2:",n1);
-    scanf("%c",&n2);
-    char c='a';
-    printf("c:%c",c);
-    c='abc';
-    printf("\nc:%c",c);
+   char name[20],last_name[20];
+   printf("Enter thr school name \n");
+   scanf("%s %s",name,last_name);
+   printf("abbreviated name:");
+   printf("%c.%c. \n",name[0],last_name[0]);
+
 
 }

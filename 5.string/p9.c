@@ -23,7 +23,7 @@ void maxCharacter(char str[])
         }
     }
 
-    printf("Maximum occurring character: %c (%d times)\n", maxChar, maxCount);
+    printf("Maximum occurring character: %c \n", maxChar, maxCount);
 }
 
 void main() 

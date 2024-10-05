@@ -1,21 +1,27 @@
  //Wap to print Fibonacci series up to given numbers
 
-#include<stdio.h>
 
-void main()
+#include <stdio.h>
+
+void main() 
+{
+    int n, num1 = 0, num2 = 1, nextTerm;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Fibonacci Series up to %d: ", n);
+    printf("%d %d ", num1, num2);
+
+    nextTerm = num1 + num2;
+    while (nextTerm <= n) 
     {
-        int n,n1=0,n2=1,n3,i;
-        printf("Enter the limit:");
-        scanf("%d,&n");
-        printf("\n%d %d",n1,n2);
-
-        for(i=2; i<n;i++)
-        {
-            n3=n1+n2;
-            printf("%d",n3);
-            n1=n2;
-            n2=n3;
-
-        }
-
+        printf("%d ", nextTerm);
+        num1 = num2;
+        num2 = nextTerm;
+        nextTerm = num1 + num2;
     }
+    printf("\n");
+
+}
+

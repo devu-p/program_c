@@ -4,59 +4,39 @@
 #include <stdio.h>
 #include <string.h>
 
-void findLargestSmallestWords(char str[]) 
-{
-    char largest[100] = "";
-    char smallest[100] = str;
-    char word[100];
-    int wordLen = 0;
-
-    for (int i = 0; str[i] != '\0'; i++) 
-    {
-        if (str[i] != ' ') 
-        {
-            word[wordLen++] = str[i];
-        } else 
-        {
-            word[wordLen] = '\0';
-
-            if (strlen(word) > strlen(largest)) 
-            {
-                strcpy(largest, word);
-            }
-
-            if (strlen(word) < strlen(smallest)) 
-            {
-                strcpy(smallest, word);
-            }
-
-            wordLen = 0;
-        }
-    }
-
-    word[wordLen] = '\0';
-    if (strlen(word) > strlen(largest)) 
-    {
-        strcpy(largest, word);
-    }
-    if (strlen(word) < strlen(smallest)) 
-    {
-        strcpy(smallest, word);
-    }
-
-    printf("Largest word: %s\n", largest);
-    printf("Smallest word: %s\n", smallest);
-}
-
-void main() 
-{
-    char str[200];
+void main() {
+    char str[100];
 
     printf("Enter a string: ");
-    fgets(str, sizeof(str), stdin);
+    scanf("%[^\n]", str);
 
-    str[strcspn(str, "\n")] = 0;
+    printf("Original String: %s\n", str);
 
-    findLargestSmallestWords(str);
+    char largest[100] = "";
+    char smallest[100] = "";
+
+    int largestLen = 0;
+    int smallestLen = 100; 
+
+    char* token = strtok(str, " ");
+
+    while (token != NULL) {
+        int len = strlen(token);
+
+        if (len > largestLen) {
+            strcpy(largest, token);
+            largestLen = len;
+        }
+
+        if (len < smallestLen) {
+            strcpy(smallest, token);
+            smallestLen = len;
+        }
+
+        token = strtok(NULL, " ");
+    }
+
+    printf("Largest Word: %s\n", largest);
+    printf("Smallest Word: %s\n", smallest);
 
 }

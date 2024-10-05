@@ -4,26 +4,20 @@
 
 void main() 
 {
-    float expense1, expense2, expense3, expense4, expense5, total, average;
+    int numExpenses;
+    float expense, total = 0, average;
 
-    printf("Enter expense 1: ");
-    scanf("%f", &expense1);
+    printf("Enter the number of expenses: ");
+    scanf("%d", &numExpenses);
 
-    printf("Enter expense 2: ");
-    scanf("%f", &expense2);
+    for (int i = 1; i <= numExpenses; i++) 
+    {
+        printf("Enter expense %d: ", i);
+        scanf("%f", &expense);
+        total += expense;
+    }
 
-    printf("Enter expense 3: ");
-    scanf("%f", &expense3);
-
-    printf("Enter expense 4: ");
-    scanf("%f", &expense4);
-
-    printf("Enter expense 5: ");
-    scanf("%f", &expense5);
-
-    total = expense1 + expense2 + expense3 + expense4 + expense5;
-
-    average = total / 5;
+    average = total / numExpenses;
 
     printf("Total expenses: %.2f\n", total);
     printf("Average expense: %.2f\n", average);

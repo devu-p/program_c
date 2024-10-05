@@ -13,6 +13,7 @@ void main()
     last_digit = number % 10;
 
     first_digit = number;
+    
     while (first_digit >= 10) 
     {
         first_digit/= 10;  

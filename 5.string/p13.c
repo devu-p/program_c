@@ -1,31 +1,26 @@
 // Write a program in C to remove characters from a string except alphabets
 
-
 #include <stdio.h>
+#include <string.h>
 
-void removeNonAlphabets(char str[]) {
-    int i, j = 0;
-
-    for (i = 0; str[i] != '\0'; i++) {
-        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')) {
-            str[j++] = str[i];
-        }
-    }
-
-    str[j] = '\0'; 
-}
-
-void main() 
-{
+int main() {
     char str[100];
 
     printf("Enter a string: ");
-    scanf("%s", str);
+    scanf("%[^\n]", str);
 
-    printf("Original string: %s\n", str);
+    printf("Original String: %s\n", str);
 
-    removeNonAlphabets(str);
+    int i, j = 0;
+    char newStr[100];
+    for (i = 0; str[i]; i++) {
+        if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')) {
+            newStr[j++] = str[i];
+        }
+    }
+    newStr[j] = '\0';
 
-    printf("String after removing non-alphabets: %s\n", str);
+    printf("Modified String: %s\n", newStr);
 
+    return 0;
 }
